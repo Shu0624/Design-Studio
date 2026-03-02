@@ -1,36 +1,171 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Studio Arc — Architecture & Interior Design Studio
 
-## Getting Started
 
-First, run the development server:
+We built this platform to showcase our architecture and interior design work in a clean, premium, and performance-focused way. The goal wasn’t just to create a portfolio — it was to build something production-ready, scalable, and easy to manage internally.
 
+The stack is modern, fast, and practical: Next.js, TypeScript, Tailwind CSS v4, MongoDB, and Cloudinary.
+
+## 🛠 Tech Stack
+
+### Frontend
+- Next.js 16 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+
+### Backend
+- Next.js API Routes
+- MongoDB Atlas (Mongoose ODM)
+
+### Authentication
+- JWT (stored in httpOnly cookies)
+- bcrypt for password hashing
+
+### Media & Assets
+- Cloudinary (image uploads + CDN delivery)
+- next/font (Inter + Playfair Display)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Before running the project locally, make sure you have:
+- Node.js 18+
+- MongoDB Atlas account (or local MongoDB)
+- Cloudinary account (free tier works fine)
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Set Up Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Copy the example environment file:
+```bash
+cp .env.local.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Now open `.env.local` and replace the placeholder values with your actual credentials.
 
-## Learn More
+Example:
+```env
+MONGODB_URI=mongodb+srv://...
+JWT_SECRET=your-super-secret-key
+CLOUDINARY_CLOUD_NAME=your-cloud
+CLOUDINARY_API_KEY=your-key
+CLOUDINARY_API_SECRET=your-secret
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_APP_NAME=Studio Arc
+ADMIN_EMAIL=admin@studioarc.com
+ADMIN_PASSWORD=your-secure-password
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Run Development Server
+```bash
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Visit:
+[http://localhost:3000](http://localhost:3000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🔐 Initial Admin Setup
 
-## Deploy on Vercel
+We built a custom admin dashboard to manage projects, services, and client messages.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To create the first admin:
+1. Make sure the dev server is running.
+2. Send a `POST` request to: `/api/seed`
+3. Log in at: `/admin/login`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Default credentials:**
+- You define these in your `.env.local` using `ADMIN_EMAIL` and `ADMIN_PASSWORD`.
+- Only use `/api/seed` locally or immediately after your first production deployment.
+
+⚠️ **Change your password immediately after first login if you deployed with simple credentials.**
+
+## 📂 Project Structure
+
+Here’s how the project is organized:
+
+```text
+src/
+├── app/
+│   ├── page.tsx
+│   ├── projects/
+│   ├── services/
+│   ├── about/
+│   ├── contact/
+│   ├── admin/
+│   │   ├── projects/
+│   │   ├── services/
+│   │   ├── messages/
+│   │   └── login/
+│   └── api/
+│       ├── auth/login/
+│       ├── projects/
+│       ├── services/
+│       ├── messages/
+│       ├── upload/
+│       └── seed/
+├── components/
+│   ├── ui/
+│   ├── layout/
+│   ├── home/
+│   ├── projects/
+│   ├── services/
+│   ├── contact/
+│   └── admin/
+├── models/
+├── lib/
+└── types/
+```
+
+We tried to keep everything modular and easy to extend.
+
+## ✨ Features
+
+### Public Website
+- Clean, animated hero section
+- Filterable projects portfolio
+- Project detail pages with image galleries + lightbox
+- Services breakdown with 4-step workflow
+- About page with studio philosophy
+- Fully validated contact form
+- Dynamic SEO metadata per page
+
+### Admin Dashboard
+- Secure JWT-based authentication
+- Full CRUD for projects
+- Multi-image upload to Cloudinary
+- Service management with ordering
+- Client message viewer (mark as read / delete)
+
+### SEO & Performance
+- Dynamic OpenGraph metadata
+- JSON-LD structured data (LocalBusiness schema)
+- Auto-generated `sitemap.xml`
+- Optimized Next.js Image usage
+- Self-hosted fonts via `next/font`
+
+### Security Measures
+- Password hashing using bcrypt
+- Input validation via Zod
+- Contact form rate limiting (5 per hour per IP)
+- Middleware-protected admin routes
+
+## 📦 Deployment
+
+The project is optimized for deployment on Vercel.
+
+**Build the project:**
+```bash
+npm run build
+```
+
+Then:
+1. Push to GitHub
+2. Import into Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy
+```
