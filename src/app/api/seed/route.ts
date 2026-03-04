@@ -9,12 +9,6 @@ export async function POST() {
 
         // Check if admin already exists
         const existingAdmin = await User.findOne({ role: 'admin' });
-        if (existingAdmin) {
-            return NextResponse.json(
-                { error: 'Admin user already exists' },
-                { status: 400 }
-            );
-        }
 
         // Check for required environment variables
         const adminEmail = process.env.ADMIN_EMAIL;
@@ -28,6 +22,23 @@ export async function POST() {
         }
 
         const hashedPassword = await hashPassword(adminPassword);
+
+        if (existingAdmin) {
+            existingAdmin.email = adminEmail;
+            existingAdmin.password = hashedPassword;
+            await existingAdmin.save();
+
+            return NextResponse.json({
+                success: true,
+                message: 'Admin user updated successfully',
+                user: {
+                    _id: existingAdmin._id,
+                    name: existingAdmin.name,
+                    email: existingAdmin.email,
+                    role: existingAdmin.role,
+                }
+            });
+        }
 
         const admin = await User.create({
             name: 'Admin',

@@ -57,7 +57,7 @@ export function useImageSequence({
             console.log(`Sequence loaded: ${loadedCount}/${totalFrames} frames`);
         });
 
-    }, [totalFrames, folderPath, fileNamePrefix, extension, padLength]);
+    }, [totalFrames, folderPath, fileNamePrefix, extension, padLength, startFrame]);
 
     // Draw frame on canvas based on progress (0 to 1)
     const drawFrame = useCallback((scrollProgress: number) => {

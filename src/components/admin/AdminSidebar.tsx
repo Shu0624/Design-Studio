@@ -8,6 +8,7 @@ const navItems = [
     { href: '/admin/projects', label: 'Projects', icon: '🏗️' },
     { href: '/admin/services', label: 'Services', icon: '⚙️' },
     { href: '/admin/messages', label: 'Messages', icon: '✉️' },
+    { href: '/admin/about', label: 'About Page', icon: '📝' },
 ];
 
 export default function AdminSidebar() {
@@ -24,18 +25,12 @@ export default function AdminSidebar() {
             {/* Logo */}
             <div className="p-6 border-b border-gray-700">
                 <Link href="/admin" className="flex items-center gap-3">
-                    <div className="w-9 h-9 relative flex items-center justify-center">
+                    <div className="h-10 flex items-center justify-center">
                         <img
                             src="/Time Logo .svg"
-                            alt="Design Studio"
-                            className="w-full h-full object-contain"
+                            alt="11:59 Design Studio"
+                            className="w-auto h-full object-contain rounded-xl"
                         />
-                    </div>
-                    <div>
-                        <span className="font-serif text-base font-semibold">DESIGN STUDIO</span>
-                        <span className="block text-[9px] text-gray-400 tracking-[0.2em] uppercase">
-                            Admin Panel
-                        </span>
                     </div>
                 </Link>
             </div>

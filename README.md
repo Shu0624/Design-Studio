@@ -57,7 +57,7 @@ CLOUDINARY_API_KEY=your-key
 CLOUDINARY_API_SECRET=your-secret
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 NEXT_PUBLIC_APP_NAME=Studio Arc
-ADMIN_EMAIL=admin@studioarc.com
+ADMIN_EMAIL=11.59designstudio@gmail.com
 ADMIN_PASSWORD=your-secure-password
 ```
 

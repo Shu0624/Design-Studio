@@ -6,7 +6,7 @@ import ContactForm from '@/components/contact/ContactForm';
 export const metadata: Metadata = {
     title: 'Contact',
     description:
-        'Get in touch with DESIGN STUDIO. Schedule a consultation for your architecture or interior design project in Nashik.',
+        'Get in touch with 11:59 DESIGN STUDIO. Schedule a consultation for your architecture or interior design project in Nashik.',
 };
 
 export default function ContactPage() {
@@ -53,15 +53,15 @@ export default function ContactPage() {
                                         <div className="space-y-3 text-sm">
                                             <div className="flex justify-between text-warm-gray">
                                                 <span>Monday – Friday</span>
-                                                <span className="text-charcoal font-medium">10:00 AM – 7:00 PM</span>
+                                                <span className="text-charcoal font-medium">10:00 AM – 6:00 PM</span>
                                             </div>
                                             <div className="flex justify-between text-warm-gray">
                                                 <span>Saturday</span>
-                                                <span className="text-charcoal font-medium">10:00 AM – 4:00 PM</span>
+                                                <span className="text-charcoal font-medium">10:00 AM – 2:30 PM</span>
                                             </div>
                                             <div className="flex justify-between text-warm-gray">
                                                 <span>Sunday</span>
-                                                <span className="text-charcoal font-medium">By Appointment</span>
+                                                <span className="text-charcoal font-medium">Closed</span>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                                         <div className="space-y-3 text-sm">
                                             <div>
                                                 <p className="text-accent-gold font-medium mb-1">Email</p>
-                                                <p className="text-warm-gray">hello@studioarc.com</p>
+                                                <p className="text-warm-gray">11.59designstudio@gmail.com</p>
                                             </div>
                                             <div>
                                                 <p className="text-accent-gold font-medium mb-1">Phone</p>

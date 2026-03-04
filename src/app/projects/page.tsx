@@ -54,7 +54,7 @@ export default function ProjectsPage() {
     return (
         <div className="pt-20">
             {/* Header */}
-            <section className="py-16 md:py-24 bg-off-white">
+            <section className="py-12 md:py-16 bg-off-white">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <AnimatedSection>
                         <SectionHeading
@@ -63,17 +63,19 @@ export default function ProjectsPage() {
                         />
                     </AnimatedSection>
                     <AnimatedSection delay={0.2}>
-                        <ProjectFilter
-                            activeCategory={activeCategory}
-                            onCategoryChange={setActiveCategory}
-                            categories={categories}
-                        />
+                        <div className="mt-8">
+                            <ProjectFilter
+                                activeCategory={activeCategory}
+                                onCategoryChange={setActiveCategory}
+                                categories={categories}
+                            />
+                        </div>
                     </AnimatedSection>
                 </div>
             </section>
 
             {/* Projects Grid */}
-            <section className="py-16 md:py-20">
+            <section className="py-12 md:py-16">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     {loading ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

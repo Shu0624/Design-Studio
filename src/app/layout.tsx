@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Great_Vibes } from "next/font/google";
+import { Inter, Playfair_Display, Great_Vibes, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import LayoutWrapper from "@/components/layout/LayoutWrapper";
 
@@ -15,6 +15,14 @@ const playfair = Playfair_Display({
   display: "swap",
   variable: "--font-playfair",
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-cormorant",
+  weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
 });
 
@@ -62,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${greatVibes.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} ${cormorant.variable}`}>
       <body className="antialiased" suppressHydrationWarning>
         <LayoutWrapper>{children}</LayoutWrapper>
       </body>

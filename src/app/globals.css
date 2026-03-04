@@ -1,27 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --charcoal: #2C2C2C;
-  --off-white: #F5F3EF;
+  --charcoal: #111111;
+  --off-white: #FAF9F6;
   --warm-gray: #8A8A8A;
-  --accent-gold: #C9A96E;
-  --accent-gold-light: #D4BA8A;
+  --accent-gold: #D4AF37;
+  --accent-gold-light: #F3E5AB;
   --light-border: #E8E5E0;
   --background: #FFFFFF;
-  --foreground: #2C2C2C;
+  --foreground: #111111;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-charcoal: #2C2C2C;
-  --color-off-white: #F5F3EF;
+  --color-charcoal: #111111;
+  --color-off-white: #FAF9F6;
   --color-warm-gray: #8A8A8A;
-  --color-accent-gold: #C9A96E;
-  --color-accent-gold-light: #D4BA8A;
+  --color-accent-gold: #D4AF37;
+  --color-accent-gold-light: #F3E5AB;
   --color-light-border: #E8E5E0;
   --font-sans: var(--font-inter), sans-serif;
   --font-serif: var(--font-playfair), serif;
+  --font-cormorant: var(--font-cormorant), serif;
 }
 
 html {
@@ -61,8 +62,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-playfair), serif;
-  color: var(--charcoal);
+  font-family: var(--font-cormorant), var(--font-playfair), serif;
 }
 
 /* Selection */
@@ -77,11 +77,12 @@ h6 {
 }
 
 .img-hover-zoom img {
-  transition: transform 0.6s ease;
+  transition: transform 1.2s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .img-hover-zoom:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  /* Slow elegant zoom */
 }
 
 /* Page Transitions */
@@ -113,16 +114,48 @@ h6 {
   left: 0;
   bottom: -4px;
   width: 100%;
-  height: 2px;
+  height: 1px;
+  /* Thinner, more elegant */
   background: var(--accent-gold);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
 .gold-underline:hover::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+/* Custom Utility Classes for Premium Design */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.85);
+  /* Slightly lighter for light mode */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  /* Gold tint border */
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(17, 17, 17, 0.05);
+  transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 12px 48px rgba(17, 17, 17, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Luxury shine sweep animation */
@@ -197,4 +230,23 @@ h6 {
     transform: scale(1.5);
     opacity: 0;
   }
+}
+
+/* Luxury button breath/pulse */
+@keyframes luxury-breathe {
+
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.03);
+  }
+}
+
+.animate-breathe {
+  animation: luxury-breathe 3.5s ease-in-out infinite;
 }

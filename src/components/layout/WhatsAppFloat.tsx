@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 export default function WhatsAppFloat() {
     const [isOpen, setIsOpen] = useState(false);
     const [showPulse, setShowPulse] = useState(true);
-    const [mounted, setMounted] = useState(false);
 
     // WhatsApp number — update this in .env.local as NEXT_PUBLIC_WHATSAPP_NUMBER
     const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210';
@@ -15,7 +14,6 @@ export default function WhatsAppFloat() {
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
 
     useEffect(() => {
-        setMounted(true);
         // Auto-hide pulse after 10 seconds
         const timer = setTimeout(() => setShowPulse(false), 10000);
         // Show pulse again every 30 seconds
@@ -29,7 +27,6 @@ export default function WhatsAppFloat() {
         };
     }, []);
 
-    if (!mounted) return null;
 
     return (
         <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">

@@ -64,7 +64,7 @@ export default function AdminLoginPage() {
                         <Input
                             label="Email"
                             type="email"
-                            placeholder="admin@studioarc.com"
+                            placeholder="11.59designstudio@gmail.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />

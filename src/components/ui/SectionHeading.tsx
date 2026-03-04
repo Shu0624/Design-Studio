@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 interface SectionHeadingProps {
     title: string;
     subtitle?: string;
@@ -7,24 +11,36 @@ interface SectionHeadingProps {
 
 export default function SectionHeading({ title, subtitle, centered = true, light = false }: SectionHeadingProps) {
     return (
-        <div className={`mb-12 md:mb-16 ${centered ? 'text-center' : ''}`}>
-            <h2
-                className={`font-serif text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 ${light ? 'text-white' : 'text-charcoal'
+        <div className={`mb-16 md:mb-24 ${centered ? 'flex flex-col items-center text-center' : ''}`}>
+            <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10px" }}
+                transition={{ duration: 0.8, ease: [0.2, 0, 0.2, 1] }}
+                className={`font-cormorant text-4xl md:text-5xl lg:text-6xl font-normal leading-tight mb-6 ${light ? 'text-white' : 'text-charcoal'
                     }`}
             >
                 {title}
-            </h2>
+            </motion.h2>
+
             {subtitle && (
-                <p
-                    className={`text-base md:text-lg max-w-2xl leading-relaxed ${centered ? 'mx-auto' : ''
-                        } ${light ? 'text-gray-300' : 'text-warm-gray'}`}
+                <motion.p
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-10px" }}
+                    transition={{ duration: 0.8, delay: 0.1, ease: [0.2, 0, 0.2, 1] }}
+                    className={`font-sans font-light text-[11px] tracking-[0.2em] uppercase max-w-2xl leading-relaxed mb-8 ${light ? 'text-white/60' : 'text-warm-gray'}`}
                 >
                     {subtitle}
-                </p>
+                </motion.p>
             )}
-            <div
-                className={`mt-6 h-[2px] w-16 bg-accent-gold ${centered ? 'mx-auto' : ''
-                    }`}
+
+            <motion.div
+                initial={{ width: 0 }}
+                whileInView={{ width: 64 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, delay: 0.3, ease: [0.2, 0, 0.2, 1] }}
+                className={`h-[1px] bg-accent-gold ${centered ? '' : ''}`}
             />
         </div>
     );
