@@ -120,7 +120,7 @@ export default function Navbar() {
                         className="fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl md:hidden overflow-y-auto"
                     >
                         <div className="flex flex-col min-h-[100dvh] px-8 pt-32 pb-12 justify-between">
-                            <div className="flex flex-col gap-8">
+                            <div className="flex flex-col px-6 py-4 gap-4 mt-20">
                                 {navLinks.map((link, i) => (
                                     <motion.div
                                         key={link.href}
@@ -131,10 +131,9 @@ export default function Navbar() {
                                         <Link
                                             href={link.href}
                                             onClick={() => setIsOpen(false)}
-                                            className="text-[40px] leading-none font-cormorant font-normal text-charcoal hover:text-accent-gold transition-colors flex items-center justify-between group"
+                                            className="block w-full text-xl font-cormorant italic tracking-wide text-charcoal hover:text-accent-gold py-5 border-b border-light-border/60 transition-colors"
                                         >
                                             {link.label}
-                                            <span className="text-[12px] font-sans text-accent-gold tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity duration-300">0{i + 1}</span>
                                         </Link>
                                     </motion.div>
                                 ))}
@@ -144,15 +143,14 @@ export default function Navbar() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.6, duration: 0.6, ease: [0.2, 0, 0.2, 1] }}
-                                className="mt-16 w-full"
+                                className="mt-8 px-6 pb-8"
                             >
                                 <Link
                                     href="/contact"
                                     onClick={() => setIsOpen(false)}
-                                    className="flex items-center justify-between w-full p-6 border border-light-border bg-off-white/50 text-charcoal hover:border-accent-gold hover:text-accent-gold transition-colors duration-500 group"
+                                    className="block w-full py-4 bg-charcoal text-white text-[11px] font-semibold uppercase tracking-[0.2em] text-center hover:bg-accent-gold transition-colors duration-500 shadow-[0_4px_20px_rgba(17,17,17,0.1)]"
                                 >
-                                    <span className="text-[14px] font-medium uppercase tracking-[0.2em]">Get in Touch</span>
-                                    <span className="transform group-hover:translate-x-2 transition-transform duration-500 text-accent-gold text-lg">→</span>
+                                    GET IN TOUCH
                                 </Link>
                             </motion.div>
                         </div>
