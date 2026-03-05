@@ -46,15 +46,15 @@ export default function Navbar() {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="flex items-center justify-between h-14 md:h-16">
                         {/* Logo */}
-                        <Link href="/" className="flex items-center gap-3 group">
+                        <Link href="/" className="flex items-center gap-3 group shrink-0">
                             <div
-                                className={`relative flex items-center justify-start transition-all duration-300 ${isSolid ? 'h-10 md:h-12' : 'h-12 md:h-14'
+                                className={`relative flex items-center justify-start transition-all duration-300 w-[140px] md:w-auto ${isSolid ? 'h-10 md:h-12' : 'h-12 md:h-14'
                                     }`}
                             >
                                 <img
                                     src="/Time Logo .svg"
                                     alt="11:59 Design Studio Logo"
-                                    className="w-auto h-full object-contain rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-transform duration-300 group-hover:scale-[1.02]"
+                                    className="w-full md:w-auto h-full object-contain object-left rounded-xl shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-transform duration-300 group-hover:scale-[1.02]"
                                 />
                             </div>
                         </Link>
@@ -98,12 +98,12 @@ export default function Navbar() {
                         {/* Mobile Menu Button  */}
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className={`md:hidden relative z-50 flex flex-col gap-1.5 p-2 group`}
+                            className={`md:hidden relative z-50 flex flex-col gap-1.5 p-3 -mr-3 group`}
                             aria-label="Toggle Menu"
                         >
-                            <span className={`block w-8 h-[1px] transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2.5 bg-charcoal' : isSolid ? 'bg-charcoal' : 'bg-white'}`} />
-                            <span className={`block w-8 h-[1px] transition-all duration-300 ${isOpen ? 'opacity-0 bg-charcoal' : isSolid ? 'bg-charcoal' : 'bg-white'}`} />
-                            <span className={`block w-8 h-[1px] transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2.5 bg-charcoal' : isSolid ? 'bg-charcoal' : 'bg-white'}`} />
+                            <span className={`block w-7 h-[1.5px] transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2 bg-charcoal' : isSolid ? 'bg-charcoal' : 'bg-white'}`} />
+                            <span className={`block w-7 h-[1.5px] transition-all duration-300 ${isOpen ? 'opacity-0 bg-charcoal' : isSolid ? 'bg-charcoal' : 'bg-white'}`} />
+                            <span className={`block w-7 h-[1.5px] transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2 bg-charcoal' : isSolid ? 'bg-charcoal' : 'bg-white'}`} />
                         </button>
                     </div>
                 </div>
@@ -119,8 +119,8 @@ export default function Navbar() {
                         transition={{ duration: 0.6, ease: [0.2, 0, 0.2, 1] }}
                         className="fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl md:hidden overflow-y-auto"
                     >
-                        <div className="flex flex-col min-h-[100dvh] px-8 pt-32 pb-12 justify-between">
-                            <div className="flex flex-col px-6 py-4 gap-4 mt-20">
+                        <div className="flex flex-col min-h-[100dvh] px-8 pt-32 pb-12 justify-between isolate">
+                            <div className="flex flex-col px-6 py-4 gap-4 mt-20 relative z-50">
                                 {navLinks.map((link, i) => (
                                     <motion.div
                                         key={link.href}
@@ -131,7 +131,7 @@ export default function Navbar() {
                                         <Link
                                             href={link.href}
                                             onClick={() => setIsOpen(false)}
-                                            className="block w-full text-xl font-cormorant italic tracking-wide text-charcoal hover:text-accent-gold py-5 border-b border-light-border/60 transition-colors"
+                                            className="block w-full text-xl font-cormorant italic tracking-wide text-charcoal hover:text-accent-gold py-5 border-b border-light-border/60 transition-colors pointer-events-auto"
                                         >
                                             {link.label}
                                         </Link>
@@ -143,12 +143,12 @@ export default function Navbar() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.6, duration: 0.6, ease: [0.2, 0, 0.2, 1] }}
-                                className="mt-8 px-6 pb-8"
+                                className="mt-8 px-6 pb-8 relative z-50"
                             >
                                 <Link
                                     href="/contact"
                                     onClick={() => setIsOpen(false)}
-                                    className="block w-full py-4 bg-charcoal text-white text-[11px] font-semibold uppercase tracking-[0.2em] text-center hover:bg-accent-gold transition-colors duration-500 shadow-[0_4px_20px_rgba(17,17,17,0.1)]"
+                                    className="block w-full py-4 bg-charcoal text-white text-[11px] font-semibold uppercase tracking-[0.2em] text-center hover:bg-accent-gold transition-colors duration-500 shadow-[0_4px_20px_rgba(17,17,17,0.1)] pointer-events-auto"
                                 >
                                     GET IN TOUCH
                                 </Link>
