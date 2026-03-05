@@ -37,7 +37,7 @@ export default function Navbar() {
         <>
             <nav
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out ${isOpen
-                    ? 'bg-transparent py-4 border-b border-transparent'
+                    ? 'bg-transparent py-4 border-b border-transparent pointer-events-none'
                     : isSolid
                         ? 'bg-white/80 backdrop-blur-xl border-b border-accent-gold/10 py-3 md:py-4 shadow-[0_4px_30px_rgba(17,17,17,0.03)]'
                         : 'bg-transparent py-6 border-b border-transparent'
@@ -98,7 +98,7 @@ export default function Navbar() {
                         {/* Mobile Menu Button  */}
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className={`md:hidden relative z-50 flex flex-col gap-1.5 p-3 -mr-3 group`}
+                            className={`md:hidden relative z-[70] flex flex-col gap-1.5 p-3 -mr-3 group pointer-events-auto`}
                             aria-label="Toggle Menu"
                         >
                             <span className={`block w-7 h-[1.5px] transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2 bg-charcoal' : isSolid ? 'bg-charcoal' : 'bg-white'}`} />
@@ -117,7 +117,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: '-10%' }}
                         transition={{ duration: 0.6, ease: [0.2, 0, 0.2, 1] }}
-                        className="fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl md:hidden overflow-y-auto"
+                        className="fixed inset-0 z-[60] bg-white md:hidden overflow-y-auto"
                     >
                         <div className="flex flex-col min-h-[100dvh] px-8 pt-32 pb-12 justify-between isolate">
                             <div className="flex flex-col px-6 py-4 gap-4 mt-20 relative z-50">
