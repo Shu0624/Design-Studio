@@ -4,7 +4,7 @@ import Project from '@/models/Project';
 import { verifyToken } from '@/lib/auth';
 import { cookies } from 'next/headers';
 import { z } from 'zod';
-
+import { revalidatePath } from 'next/cache';
 const updateSchema = z.object({
     title: z.string().min(1).optional(),
     category: z.string().min(1).optional(),
@@ -77,6 +77,9 @@ export async function PUT(
             return NextResponse.json({ error: 'Project not found' }, { status: 404 });
         }
 
+        revalidatePath('/');
+        revalidatePath('/projects');
+
         return NextResponse.json(project);
     } catch (error) {
         console.error('Error updating project:', error);
@@ -103,6 +106,9 @@ export async function DELETE(
         if (!project) {
             return NextResponse.json({ error: 'Project not found' }, { status: 404 });
         }
+
+        revalidatePath('/');
+        revalidatePath('/projects');
 
         return NextResponse.json({ success: true });
     } catch (error) {

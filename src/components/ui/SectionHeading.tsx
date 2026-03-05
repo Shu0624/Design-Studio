@@ -17,7 +17,7 @@ export default function SectionHeading({ title, subtitle, centered = true, light
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-10px" }}
                 transition={{ duration: 0.8, ease: [0.2, 0, 0.2, 1] }}
-                className={`font-cormorant text-4xl md:text-5xl lg:text-6xl font-normal leading-tight mb-6 ${light ? 'text-white' : 'text-charcoal'
+                className={`font-cormorant text-[32px] md:text-5xl lg:text-6xl font-normal leading-tight mb-6 ${light ? 'text-white' : 'text-charcoal'
                     }`}
             >
                 {title}

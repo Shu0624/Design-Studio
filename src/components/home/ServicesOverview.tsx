@@ -61,7 +61,7 @@ export default async function ServicesOverview() {
     }
 
     return (
-        <section className="py-24 md:py-32 bg-[url('/noise.png')] bg-white relative">
+        <section className="py-[80px] md:py-[120px] bg-[url('/noise.png')] bg-white relative">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <AnimatedSection>
                     <SectionHeading
@@ -70,7 +70,7 @@ export default async function ServicesOverview() {
                     />
                 </AnimatedSection>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[30px] md:gap-[40px] mt-12 md:mt-16">
                     {services.map((service, index) => (
                         <AnimatedSection key={service.title} delay={index * 0.1}>
                             <div className="glass-card group h-full flex flex-col relative overflow-hidden bg-white/40">
@@ -84,12 +84,12 @@ export default async function ServicesOverview() {
                                         />
                                     </div>
                                 )}
-                                <div className="p-8 md:p-10 flex-grow flex flex-col relative z-20">
+                                <div className="p-[30px] md:p-[40px] flex-grow flex flex-col relative z-20">
                                     <span className="text-accent-gold text-2xl mb-8 block opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500 origin-left">{service.icon}</span>
-                                    <h3 className="font-cormorant text-2xl font-normal text-charcoal mb-4 group-hover:text-accent-gold transition-colors duration-500">
+                                    <h3 className="font-cormorant text-[28px] md:text-[32px] font-normal text-charcoal mb-4 group-hover:text-accent-gold transition-colors duration-500">
                                         {service.title}
                                     </h3>
-                                    <p className="font-sans font-light text-[13px] text-warm-gray leading-relaxed tracking-wide opacity-90">
+                                    <p className="font-sans font-light text-[16px] md:text-[18px] text-warm-gray leading-relaxed tracking-wide opacity-90">
                                         {service.description}
                                     </p>
 

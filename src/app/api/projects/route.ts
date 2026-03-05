@@ -4,7 +4,7 @@ import Project from '@/models/Project';
 import { verifyToken } from '@/lib/auth';
 import { cookies } from 'next/headers';
 import { z } from 'zod';
-
+import { revalidatePath } from 'next/cache';
 const projectSchema = z.object({
     title: z.string().min(1),
     category: z.string().min(1),
@@ -60,6 +60,10 @@ export async function POST(request: Request) {
             .replace(/ +/g, '-');
 
         const project = await Project.create({ ...validation.data, slug });
+
+        revalidatePath('/');
+        revalidatePath('/projects');
+
         return NextResponse.json(project, { status: 201 });
     } catch (error) {
         console.error('Error creating project:', error);

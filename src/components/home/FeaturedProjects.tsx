@@ -27,7 +27,7 @@ export default async function FeaturedProjects() {
     if (projects.length === 0) return null;
 
     return (
-        <section className="py-16 md:py-24 bg-off-white relative">
+        <section className="py-[80px] md:py-[120px] bg-off-white relative">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 <AnimatedSection>
                     <SectionHeading
@@ -36,10 +36,10 @@ export default async function FeaturedProjects() {
                     />
                 </AnimatedSection>
 
-                <div className="flex flex-col gap-24 md:gap-28 mt-8 md:mt-12">
+                <div className="flex flex-col gap-[80px] md:gap-[120px] mt-12 md:mt-16">
                     {projects.map((project, index) => (
                         <AnimatedSection key={project._id} delay={0.1}>
-                            <Link href={`/projects/${project.slug}`} className={`group flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-10 md:gap-16 lg:gap-24 items-center`}>
+                            <Link href={`/projects/${project.slug}`} className={`group flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-[30px] md:gap-[60px] lg:gap-[80px] items-center`}>
                                 <div className="w-full md:w-[55%]">
                                     <div className="img-hover-zoom relative aspect-[16/10] md:aspect-[4/3] shadow-[0_20px_60px_rgba(17,17,17,0.08)] bg-white p-3 md:p-4 border border-light-border/40 transition-shadow duration-700 group-hover:shadow-[0_30px_70px_rgba(17,17,17,0.12)]">
                                         <div className="relative w-full h-full overflow-hidden">
@@ -67,7 +67,7 @@ export default async function FeaturedProjects() {
                                             {project.category}
                                         </p>
                                     </div>
-                                    <h3 className="font-cormorant text-5xl md:text-[60px] lg:text-[72px] font-normal leading-[1.1] text-charcoal mb-10 md:mb-14 group-hover:text-accent-gold transition-colors duration-700">
+                                    <h3 className="font-cormorant text-[28px] md:text-[48px] lg:text-[64px] font-normal leading-[1.1] text-charcoal mb-8 md:mb-14 group-hover:text-accent-gold transition-colors duration-700">
                                         {project.title}
                                     </h3>
 
@@ -77,15 +77,15 @@ export default async function FeaturedProjects() {
                                         <div className="absolute inset-0 bg-accent-gold/20 rounded-full blur-xl animate-breathe" />
 
                                         {/* Button body */}
-                                        <div className="relative flex items-center justify-between gap-8 px-8 py-4 border border-accent-gold/40 bg-white/80 backdrop-blur-md rounded-full transition-all duration-700 group-hover/btn:bg-accent-gold group-hover/btn:border-accent-gold shadow-sm group-hover/btn:shadow-[0_0_30px_rgba(212,175,55,0.4)] overflow-hidden">
+                                        <div className="relative flex items-center justify-between gap-6 px-[24px] py-[14px] md:px-[32px] md:py-[16px] border border-accent-gold/40 bg-white/80 backdrop-blur-md rounded-full transition-all duration-700 group-hover/btn:bg-accent-gold group-hover/btn:border-accent-gold shadow-sm group-hover/btn:shadow-[0_0_30px_rgba(212,175,55,0.4)] overflow-hidden">
 
                                             {/* Shimmer sweep effect inside button on hover */}
                                             <div className="absolute inset-0 translate-x-[-100%] group-hover/btn:animate-[shine-fast_1.5s_ease-out] bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
 
-                                            <span className="relative z-10 text-sm md:text-[16px] font-medium tracking-[0.2em] uppercase text-charcoal transition-colors duration-700 group-hover/btn:text-white">
+                                            <span className="relative z-10 text-[16px] md:text-[18px] font-medium tracking-[0.2em] uppercase text-charcoal transition-colors duration-700 group-hover/btn:text-white">
                                                 View Project
                                             </span>
-                                            <span className="relative z-10 flex items-center justify-center transform transition-transform duration-700 group-hover/btn:translate-x-2 text-accent-gold group-hover/btn:text-white text-lg">
+                                            <span className="relative z-10 flex items-center justify-center transform transition-transform duration-700 group-hover/btn:translate-x-3 text-accent-gold group-hover/btn:text-white text-[18px]">
                                                 →
                                             </span>
                                         </div>

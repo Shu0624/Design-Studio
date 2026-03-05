@@ -10,7 +10,7 @@ interface PremiumButtonProps {
 }
 
 export default function PremiumButton({ href, children, variant = 'primary', className = '' }: PremiumButtonProps) {
-    const baseStyles = "relative inline-flex items-center justify-center px-10 py-4 text-[11px] font-semibold uppercase tracking-[0.2em] transition-all duration-500 overflow-hidden group";
+    const baseStyles = "relative inline-flex items-center justify-center px-[24px] py-[14px] md:px-[32px] md:py-[16px] text-[16px] md:text-[18px] font-medium uppercase tracking-[0.2em] transition-all duration-500 overflow-hidden group";
 
     const variants = {
         primary: "bg-charcoal text-white hover:bg-accent-gold hover:text-white shadow-[0_8px_30px_rgba(17,17,17,0.12)] border border-transparent",
